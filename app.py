@@ -10,7 +10,7 @@ import folium
 from streamlit_folium import st_folium
 
 APP_TITLE = "Crop Production & Yield Dashboard (India)"
-APP_SUBTITLE = "Decision-support dashboard for state/district-level crop monitoring"
+APP_SUBTITLE = "Dashboard for state/district-level crop monitoring"
 
 CROP_DATA_PATH = r"./data/India Agriculture Crop Production.csv"
 GEOJSON_PATH = r"./data/india_state_geo.json"
