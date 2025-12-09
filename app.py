@@ -12,8 +12,8 @@ from streamlit_folium import st_folium
 APP_TITLE = "Crop Production & Yield Dashboard (India)"
 APP_SUBTITLE = "Decision-support dashboard for state/district-level crop monitoring"
 
-CROP_DATA_PATH = r"India Agriculture Crop Production.csv"
-GEOJSON_PATH = r"india_state_geo.json"
+CROP_DATA_PATH = r"./data/India Agriculture Crop Production.csv"
+GEOJSON_PATH = r"./data/india_state_geo.json"
 
 @st.cache_data(show_spinner=True)
 def load_crop_data():
@@ -86,7 +86,7 @@ def load_geojson():
         gj = json.load(f)
 
     sample_props = gj["features"][0]["properties"]
-    candidates = ["st_nm", "ST_NM", "state", "STATE", "state_name", "STATE_NAME", "NAME_1", "name", "NAME"]
+    candidates = ["NAME_1", "NAME"]
     state_key = None
     for k in candidates:
         if k in sample_props:
@@ -281,7 +281,6 @@ States with >10% yield decline over the last 5 years (or available window) for t
 - Target input subsidies, irrigation, and climate-resilient practices to districts with persistently low yields.
 - Encourage data-driven monitoring by integrating this dashboard with field reports and remote-sensing indicators.
 
-(Generated automatically by the Streamlit dashboard.)
 """
     return brief.strip()
 
